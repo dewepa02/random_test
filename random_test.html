@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+		<title>CS103 - Random Numbers Test</title>
+<script>
+	var startRange = 1;
+	var endRange = 100;
+
+//return a value between 1 and 100
+	function getRandomNumber(startRange, endRange) {
+  return Math.floor(Math.random() * (endRange - startRange + 1)) + startRange;
+}
+</script>
+	</head>
+<body>
+	<h1>Random Test 1</h1>
+	<script>
+
+// Define variables
+var minValue = 1;
+var maxValue = 100;
+var executions = 10; // Number of executions
+var targetValue = 50; // Target value for the second test
+
+// Function to generate random number within a range
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Test 1: Generate sum and average of random numbers and check if average is greater than mid value
+document.write("Testing random values from " + minValue + " to " + maxValue + ".<br><br>");
+
+var sum = 0;
+for (var i = 0; i < executions; i++) {
+  var randomNum = getRandomNumber(minValue, maxValue);
+  sum += randomNum;
+}
+var average = sum / executions;
+var midValue = (maxValue + minValue) / 2;
+var isAvgGreaterThanMid = average > midValue;
+
+document.write("<b>Random Test 1</b><br>");
+document.write("executions: " + executions + "<br>");
+document.write("sum: " + sum + "<br>");
+document.write("average: " + average + "<br>");
+document.write("average is greater than mid value in range: " + isAvgGreaterThanMid + "<br><br>");
+
+	</script>
+
+	<h1>Random Test 2</h1>
+	<script>
+// Test 2: Generate random numbers until target value is achieved and count attempts
+document.write("<b>Random Test 2</b><br>");
+document.write("Target value: " + targetValue + "<br>");
+
+var attempts = 0;
+var found = false;
+while (!found) {
+  attempts++;
+  var randomNumber = getRandomNumber(minValue, maxValue);
+  if (randomNumber === targetValue) {
+    found = true;
+  }
+}
+document.write(targetValue + " was returned in " + attempts + " attempts.");
+	</script>
+</body>
+</html>
+
+
